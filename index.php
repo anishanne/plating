@@ -4,8 +4,17 @@ if (isset($_GET["string"])){
         function pigWord($word) {
             $input=$word;
             $firstCharacter = $input[0];
+            $firstCharacter2 = strtolower($input[0]);
+            if ($firstCharacter != $firstCharacter2){
+                $capital= True;
+            }
+            else{
+                $capital = False;
+            }
+            echo $input;
             if (($firstCharacter == "a") or ($firstCharacter == "e") or ($firstCharacter == "i") or ($firstCharacter == "o") or ($firstCharacter == "u")){
                 $tresult=$input."way";
+                
             }
             else{
                 $tresult=$input;
@@ -15,19 +24,24 @@ if (isset($_GET["string"])){
                     $firstCharacter = $tresult[0];
                 }
             }
-            $result=$tresult;
+            $result=strtolower($tresult)."ay";
+            if ($capital==True){
+                
+                $firstCharacter = $result[0];
+                $result = substr($result, 1);
+                $result=strtoupper($firstCharacter).$result;
+            }
             return $result;
         }
         
-        $input=$_GET["string"];
+        $input=$_POST["string"];
         $result="";
-        $input=strtolower($input);
+        
         $array = explode(" ", $input);
         for ($x = 1; $x <= count($array); $x++) {
             $result.=pigWord($array[$x-1]);
             $result.=" ";
         } 
-        echo $result;
 }
 
 else{
@@ -39,8 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         function pigWord($word) {
             $input=$word;
             $firstCharacter = $input[0];
+            $firstCharacter2 = strtolower($input[0]);
+            if ($firstCharacter != $firstCharacter2){
+                $capital= True;
+            }
+            else{
+                $capital = False;
+            }
+            echo $input;
             if (($firstCharacter == "a") or ($firstCharacter == "e") or ($firstCharacter == "i") or ($firstCharacter == "o") or ($firstCharacter == "u")){
                 $tresult=$input."way";
+                
             }
             else{
                 $tresult=$input;
@@ -50,13 +73,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $firstCharacter = $tresult[0];
                 }
             }
-            $result=$tresult;
+            $result=strtolower($tresult)."ay";
+            if ($capital==True){
+                
+                $firstCharacter = $result[0];
+                $result = substr($result, 1);
+                $result=strtoupper($firstCharacter).$result;
+            }
             return $result;
         }
         
         $input=$_POST["string"];
         $result="";
-        $input=strtolower($input);
+        
         $array = explode(" ", $input);
         for ($x = 1; $x <= count($array); $x++) {
             $result.=pigWord($array[$x-1]);
