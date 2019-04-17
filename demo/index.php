@@ -27,7 +27,6 @@
         for ($x = 1; $x <= count($array); $x++) {
             $result.=pigWord($array[$x-1]);
             $result.=" ";
-            //echo pigWord($array[$x-1]."       \r\n      ");
         } 
         
     }
@@ -49,8 +48,9 @@
     
     <h2>Endpoints</h2>
     <ul>
-      <li><strong>GET</strong> <code>/plating</code>: shows this very page</li>
-      <li><strong>POST</strong> <code>/plating</code>: reverses the request body</li>
+      <li><strong>GET</strong> <code>/plating</code>: Changes the body text to pig latin.</li>
+      <li><strong>POST</strong> <code>/plating</code>: Changes the body text to pig latin.</li>
+      <li><strong>POST</strong> <code>/plating/demo</code>: reverses the request body</li>
       <!--<li><strong>GET</strong> <code>/revers/:string</code>: reverses the string in the url</li>-->
     </ul>
 
