@@ -11,10 +11,8 @@ if (isset($_GET["string"])){
             else{
                 $capital = False;
             }
-            echo $input;
             if (($firstCharacter == "a") or ($firstCharacter == "e") or ($firstCharacter == "i") or ($firstCharacter == "o") or ($firstCharacter == "u")){
                 $tresult=$input."way";
-                
             }
             else{
                 $tresult=$input;
@@ -34,14 +32,15 @@ if (isset($_GET["string"])){
             return $result;
         }
         
-        $input=$_POST["string"];
+        $input=$_GET["string"];
         $result="";
-        
+        $input=strtolower($input);
         $array = explode(" ", $input);
         for ($x = 1; $x <= count($array); $x++) {
             $result.=pigWord($array[$x-1]);
             $result.=" ";
         } 
+        echo $result;
 }
 
 else{
